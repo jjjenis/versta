@@ -1,0 +1,36 @@
+@model Domain.Entities.Order
+
+@{
+    ViewData["Title"] = $"Заказ {Model.OrderNumber}";
+}
+
+<div class="d-flex align-items-center justify-content-between gap-3 mb-4">
+    <div>
+        <h1 class="h3 mb-1">Заказ @Model.OrderNumber</h1>
+        <p class="text-muted mb-0">Просмотр заказа в режиме чтения.</p>
+    </div>
+    <a class="btn btn-outline-secondary" asp-action="Index">К списку</a>
+</div>
+
+<dl class="row order-details">
+    <dt class="col-sm-4">Номер заказа</dt>
+    <dd class="col-sm-8">@Model.OrderNumber</dd>
+
+    <dt class="col-sm-4">Город отправителя</dt>
+    <dd class="col-sm-8">@Model.SenderCity</dd>
+
+    <dt class="col-sm-4">Адрес отправителя</dt>
+    <dd class="col-sm-8">@Model.SenderAddress</dd>
+
+    <dt class="col-sm-4">Город получателя</dt>
+    <dd class="col-sm-8">@Model.RecipientCity</dd>
+
+    <dt class="col-sm-4">Адрес получателя</dt>
+    <dd class="col-sm-8">@Model.RecipientAddress</dd>
+
+    <dt class="col-sm-4">Вес груза</dt>
+    <dd class="col-sm-8">@Model.CargoWeight кг</dd>
+
+    <dt class="col-sm-4">Дата забора груза</dt>
+    <dd class="col-sm-8">@Model.PickupDate.ToString("dd.MM.yyyy HH:mm")</dd>
+</dl>
